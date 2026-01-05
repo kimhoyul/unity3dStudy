@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
         _anim = GetComponent<Animator>();
 
         Managers.Input.MouseAction += OnMouseClicked;
+
+
     }
 
     private void Update()

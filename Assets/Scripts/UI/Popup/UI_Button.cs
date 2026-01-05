@@ -1,10 +1,8 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_Button : UI_Base
+public class UI_Button : UI_Popup
 {
     Text _text;
     Button _button;
@@ -39,17 +37,15 @@ public class UI_Button : UI_Base
         _text = GetText((int)Texts.ScoreText);
         _button = Get<Button>((int)Buttons.PointButton);
 
+        GetButton((int)Buttons.PointButton).gameObject.AddUIEvent(OnButtonClicked);
+
         GameObject go = GetImage((int)Images.ItemIcon).gameObject;
-        UI_EventHandler evt = go.GetComponent<UI_EventHandler>();
-        evt.OnDragHandler += ((PointerEventData data) => { go.transform.position = data.position; });
-
-
-        _button.onClick.AddListener(OnButtonClicked);
+        AddUIEvent(go, (PointerEventData data) => { go.transform.position = data.position; }, Define.UIEvent.Drag);
     }
 
     int _score = 0;
 
-    public void OnButtonClicked() 
+    public void OnButtonClicked(PointerEventData data) 
     {
         _score++;
         _text.text = $"Á¡¼ö : {_score}";
