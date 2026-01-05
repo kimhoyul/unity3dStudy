@@ -30,8 +30,6 @@ public class PlayerController : MonoBehaviour
         _anim = GetComponent<Animator>();
 
         Managers.Input.MouseAction += OnMouseClicked;
-
-        Managers.Resource.Instantiate("UI/UI_Button");
     }
 
     private void Update()
