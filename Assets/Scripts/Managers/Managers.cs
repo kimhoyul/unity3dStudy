@@ -4,17 +4,29 @@ using UnityEngine.UI;
 
 public class Managers : MonoBehaviour
 {
-    public Button button;
-
     // 클래스간 데이터의 통신을 위한
     private static Managers instance; // 유일성이 보장 된다 / 클래스에 종속적이니까
-    public static Managers Instance { get { Init(); return instance; } }
+    public static Managers Instance
+    { 
+        get 
+        { 
+            Init(); 
+            return instance; 
+        } 
+    }
 
-    InputManager _input = new InputManager(); // 단일성을 위해서 매니저 클래스에서만 생성
+
+
+    private InputManager _input = new InputManager(); // 단일성을 위해서 매니저 클래스에서만 생성
+    private ResourceManager _resource = new ResourceManager(); // 개체 생성
+
     public static InputManager Input { get { return Instance._input; } }
+    public static ResourceManager Resource { get { return Instance._resource; } } // 개체를 접근할 수 있도록 열어줌
 
     void Start()
     {
+        
+
         Init();
     }
 

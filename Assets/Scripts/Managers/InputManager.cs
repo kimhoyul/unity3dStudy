@@ -1,17 +1,33 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InputManager
 {
     // 리스너 패턴
-    public Action KeyAction = null;
+    public Action<Define.MouseEvent> MouseAction = null;
+
+    bool _pressed = false;
 
     public void OnUpdate()
     {
         if (Input.anyKey == false)
             return;
 
-        if (KeyAction != null) // KeyAction 구독한 클래스가 있다면 
-            KeyAction.Invoke(); // 그럼 KeyAction을 브로드캐스트 하자!!!
+        if (MouseAction != null)
+        {
+            if(Input.GetMouseButton(0))
+            {
+                MouseAction.Invoke(Define.MouseEvent.Press);
+                _pressed = true;
+            }
+            else
+            {
+                if (_pressed)
+                    MouseAction.Invoke(Define.MouseEvent.Click);
+
+                _pressed = false;
+            }
+        }
     }
 }
