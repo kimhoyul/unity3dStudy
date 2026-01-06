@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -46,8 +47,13 @@ public class UI_Button : UI_Popup
 
         GetButton((int)Buttons.PointButton).gameObject.AddUIEvent(OnButtonClicked);
 
-        GameObject go = GetImage((int)Images.ItemIcon).gameObject;
-        AddUIEvent(go, (PointerEventData data) => { go.transform.position = data.position; }, Define.UIEvent.Drag);
+        //GameObject go = GetImage((int)Images.ItemIcon).gameObject;
+        //AddUIEvent(go, (PointerEventData data) => { go.transform.position = data.position; }, Define.UIEvent.Drag);
+    }
+
+    void Test(string a)
+    {
+        Logger.Log("≈∞∫∏µÂ√∆¿Ω");
     }
 
     int _score = 0;

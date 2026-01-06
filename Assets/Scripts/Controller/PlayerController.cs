@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
         Managers.Input.MouseAction += OnMouseClicked;
 
         // Temp
-        UI_Button ui = Managers.UI.ShowPopupUI<UI_Button>();
+        Managers.UI.ShowSceneUI<UI_Inven>();
     }
 
     private void Update()
