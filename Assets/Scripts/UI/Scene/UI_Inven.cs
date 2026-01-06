@@ -27,8 +27,12 @@ public class UI_Inven : UI_Scene
             GameObject item = Managers.Resource.Instantiate("UI/Scene/UI_InvenItem");
             item.transform.SetParent(gridPanel.transform); // 아이템 생성후 부모설정
 
-            // TODO : 실제 데이터 참고해서 아이템의 내요 채우기
-
+            // TODO : 실제 데이터 참고해서 아이템의 내용 채우기
+            UI_InvenItem invenItem = item.GetComponent<UI_InvenItem>();
+            if (invenItem != null)
+            {
+               invenItem.SetInfo(null, $"집행검_{i}");
+            }
         }
 
     }
