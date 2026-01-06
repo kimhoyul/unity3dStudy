@@ -31,7 +31,8 @@ public class PlayerController : MonoBehaviour
 
         Managers.Input.MouseAction += OnMouseClicked;
 
-
+        // Temp
+        UI_Button ui = Managers.UI.ShowPopupUI<UI_Button>();
     }
 
     private void Update()
@@ -71,9 +72,6 @@ public class PlayerController : MonoBehaviour
 
         // 애니메이션
         _anim.SetFloat("wait_run_ratio", 1);
-
-        Image image;
-
     }
 
     void UpdateIdle()

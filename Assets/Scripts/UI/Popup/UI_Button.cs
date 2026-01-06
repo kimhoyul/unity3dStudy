@@ -27,8 +27,15 @@ public class UI_Button : UI_Popup
         ItemIcon,
     }
 
-    public void Start()
+    private void Start()
     {
+        Init();
+    }
+
+    public override void Init()
+    {
+        base.Init();
+
         Bind<Button>(typeof(Buttons)); // 어딘가에 타입을가져온뒤 그 안에 속한 이름으로 객체를 찾아서 저장해두겠다.
         Bind<Text>(typeof(Texts));
         Bind<GameObject>(typeof(GameObjects));
