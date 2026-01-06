@@ -15,21 +15,24 @@ public class UI_InvenItem : UI_Base
     {
         ItemNameText
     }
-  
+
+    private void Start()
+    {
+        Init();
+    }
+
     public override void Init()
     {
         Bind<Image>(typeof(Images));
         Bind<Text>(typeof(Texts));
+
+        RefreshUI();
     }
 
     public void SetInfo(Sprite texture, string itemName)
     {
-        Init();
-
         _texture = texture;
         _name = itemName;
-
-        RefreshUI();
     }
 
     public void RefreshUI()
