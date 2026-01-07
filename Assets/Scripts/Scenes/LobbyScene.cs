@@ -1,14 +1,18 @@
 using UnityEngine;
 
-public class LobbyScene : MonoBehaviour
-{    
-    void Start()
+public class LobbyScene : BaseScene
+{
+    protected override void Init()
     {
-        
+        base.Init();
+        SceneType = Define.Scene.Lobby; // Àº´Ð¼º
+
     }
 
-    void Update()
+
+
+    public override void Clear()
     {
-        
+
     }
 }

@@ -49,6 +49,8 @@ public class UI_Button : UI_Popup
 
         //GameObject go = GetImage((int)Images.ItemIcon).gameObject;
         //AddUIEvent(go, (PointerEventData data) => { go.transform.position = data.position; }, Define.UIEvent.Drag);
+
+        Transform a = transform.parent;
     }
 
     void Test(string a)

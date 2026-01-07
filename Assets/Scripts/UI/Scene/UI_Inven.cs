@@ -26,14 +26,17 @@ public class UI_Inven : UI_Scene
         // TODO : 실제 데이터 참고해서 인벤토리 채우기
         for (int i = 0; i < 10/*data.items.Count*/; i++)
         {
-            GameObject item = Managers.Resource.Instantiate("UI/Scene/UI_InvenItem");
+            GameObject item = Managers.Resource.Instantiate("UI/SubItem/UI_InvenItem");
             item.transform.SetParent(gridPanel.transform); // 아이템 생성후 부모설정
 
             // TODO : 실제 데이터 참고해서 아이템의 내용 채우기
             UI_InvenItem invenItem = item.GetComponent<UI_InvenItem>();
             if (invenItem != null)
             {
-               invenItem.SetInfo(null, $"집행검_{i}");
+                Texture2D texture = Managers.Resource.Load<Texture2D>("Textures/Icon1");
+                Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
+
+                invenItem.SetInfo(sprite, $"집행검_{i}");
             }
         }
 

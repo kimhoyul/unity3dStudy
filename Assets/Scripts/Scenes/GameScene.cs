@@ -1,12 +1,7 @@
 using UnityEngine;
 
-public class GameScene : BaseScene
+public class GameScene : BaseScene // Game æ¿ø° º±∫¿¿Â
 {
-    void Start()
-    {
-        Init();
-    }
-
     protected override void Init()
     {
         base.Init();

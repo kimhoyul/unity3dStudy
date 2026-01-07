@@ -18,10 +18,12 @@ public class Managers : MonoBehaviour
     private InputManager _input = new InputManager(); // 단일성을 위해서 매니저 클래스에서만 생성
     private ResourceManager _resource = new ResourceManager(); // 개체 생성
     private UIManager _ui = new UIManager();
+    private SceneManagerEx _scene = new SceneManagerEx();
 
     public static InputManager Input { get { return Instance._input; } }
     public static ResourceManager Resource { get { return Instance._resource; } } // 개체를 접근할 수 있도록 열어줌
     public static UIManager UI { get { return Instance._ui; } }
+    public static SceneManagerEx Scene { get { return Instance._scene; } }
 
     void Start()
     {

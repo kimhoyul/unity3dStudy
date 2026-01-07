@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UI_InvenItem : UI_Base
@@ -16,6 +18,11 @@ public class UI_InvenItem : UI_Base
         ItemNameText
     }
 
+    enum Buttons
+    {
+        ItemButton,
+    }
+
     private void Start()
     {
         Init();
@@ -25,6 +32,9 @@ public class UI_InvenItem : UI_Base
     {
         Bind<Image>(typeof(Images));
         Bind<Text>(typeof(Texts));
+        Bind<Button>(typeof(Buttons));
+
+        GetButton((int)Buttons.ItemButton).gameObject.AddUIEvent(OnButtonClicked);
 
         RefreshUI();
     }
@@ -43,5 +53,10 @@ public class UI_InvenItem : UI_Base
         Text nameText = GetText((int)Texts.ItemNameText);
         nameText.text = _name;
 
+    }
+
+    public void OnButtonClicked(PointerEventData data)
+    {
+        Logger.Log($"{_name} Å¬¸¯");
     }
 }
