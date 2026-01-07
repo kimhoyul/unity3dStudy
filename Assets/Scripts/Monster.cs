@@ -2,14 +2,23 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public AudioClip clip;
+
+    private void Attack()
     {
+        // °ø°Ý·Î£“
+        Managers.Sound.Play(Define.Sound.Effect, "Attack");
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        //AudioSource audio = GetComponent<AudioSource>();
+        //audio.PlayOneShot(clip);
+
+        //float lifeTime = clip.length;
+        //Managers.Resource.Destroy(gameObject, lifeTime * 0.7f);
+
+        Managers.Sound.Play(Define.Sound.Effect, "univ0001");
+
     }
 }

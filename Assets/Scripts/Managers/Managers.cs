@@ -5,13 +5,13 @@ using UnityEngine.UI;
 public class Managers : MonoBehaviour
 {
     // 클래스간 데이터의 통신을 위한
-    private static Managers instance; // 유일성이 보장 된다 / 클래스에 종속적이니까
+    private static Managers s_instance; // 유일성이 보장 된다 / 클래스에 종속적이니까
     public static Managers Instance
     { 
         get 
         { 
             Init(); 
-            return instance; 
+            return s_instance; 
         } 
     }
 
@@ -19,16 +19,16 @@ public class Managers : MonoBehaviour
     private ResourceManager _resource = new ResourceManager(); // 개체 생성
     private UIManager _ui = new UIManager();
     private SceneManagerEx _scene = new SceneManagerEx();
+    private SoundManager _sound = new SoundManager();
 
     public static InputManager Input { get { return Instance._input; } }
     public static ResourceManager Resource { get { return Instance._resource; } } // 개체를 접근할 수 있도록 열어줌
     public static UIManager UI { get { return Instance._ui; } }
     public static SceneManagerEx Scene { get { return Instance._scene; } }
+    public static SoundManager Sound { get { return Instance._sound; } }
 
     void Start()
     {
-        
-
         Init();
     }
 
@@ -39,7 +39,7 @@ public class Managers : MonoBehaviour
 
     static void Init()
     {
-        if (instance == null)
+        if (s_instance == null)
         {
             GameObject go = GameObject.Find("@Managers");
             if (go == null)
@@ -49,7 +49,9 @@ public class Managers : MonoBehaviour
             }
 
             DontDestroyOnLoad(go); // 씬이 이동되도 얘는 죽이지말고 살려놔
-            instance = go.GetComponent<Managers>();
+            s_instance = go.GetComponent<Managers>();
+
+            s_instance._sound.Init(); // 앞으로 Start 에서 못 할땐 여기서 하자!!!!
         }
     }
 }
