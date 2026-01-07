@@ -30,9 +30,6 @@ public class PlayerController : MonoBehaviour
         _anim = GetComponent<Animator>();
 
         Managers.Input.MouseAction += OnMouseClicked;
-
-        // Temp
-        Managers.UI.ShowSceneUI<UI_Inven>();
     }
 
     private void Update()

@@ -21,8 +21,10 @@ public class UI_Inven : UI_Scene
         foreach (Transform child in gridPanel.transform) // 그리드패널에 자식오브젝트 전체 삭제
             Managers.Resource.Destroy(child.gameObject);
 
+        //예시 : Define.InventoryData data = // 통신을 하는 함수
+
         // TODO : 실제 데이터 참고해서 인벤토리 채우기
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 10/*data.items.Count*/; i++)
         {
             GameObject item = Managers.Resource.Instantiate("UI/Scene/UI_InvenItem");
             item.transform.SetParent(gridPanel.transform); // 아이템 생성후 부모설정

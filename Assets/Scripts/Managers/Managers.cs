@@ -15,8 +15,6 @@ public class Managers : MonoBehaviour
         } 
     }
 
-
-
     private InputManager _input = new InputManager(); // 단일성을 위해서 매니저 클래스에서만 생성
     private ResourceManager _resource = new ResourceManager(); // 개체 생성
     private UIManager _ui = new UIManager();
