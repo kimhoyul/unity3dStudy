@@ -12,7 +12,10 @@ public class Monster : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //AudioSource audio = GetComponent<AudioSource>();
+        
+
+        AudioSource audio = GetComponent<AudioSource>();
+
         //audio.PlayOneShot(clip);
 
         //float lifeTime = clip.length;

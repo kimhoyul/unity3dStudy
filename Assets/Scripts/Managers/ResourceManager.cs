@@ -9,6 +9,7 @@ public class ResourceManager
 
     public GameObject Instantiate(string path, Transform parent = null) // 유니티에서 만들어준 함수를 랩핑한것
     {
+        // 1. 이미 프리펩을 들고 있다면 바로 사용
         GameObject prefab = Load<GameObject>($"Prefabs/{path}");
         if (prefab == null)
         {
@@ -16,13 +17,19 @@ public class ResourceManager
             return null;
         }
 
-        return Object.Instantiate(prefab, parent);
+        // 2. 혹시 풀링 된 애가 있다면 역시 걔를 사용
+        GameObject go = Object.Instantiate(prefab, parent);
+        go.name = prefab.name;
+        
+        return go;
     }
 
     public void Destroy(GameObject go, float t = 0f)
     {
         if (go == null)
             return;
+
+        // 3. 삭제가아니라 풀링대상자 라면 풀매니저에게 보내버리기
 
         Object.Destroy(go, t);
     }

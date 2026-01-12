@@ -20,12 +20,14 @@ public class Managers : MonoBehaviour
     private UIManager _ui = new UIManager();
     private SceneManagerEx _scene = new SceneManagerEx();
     private SoundManager _sound = new SoundManager();
+    private PoolManager _pool = new PoolManager();
 
     public static InputManager Input { get { return Instance._input; } }
     public static ResourceManager Resource { get { return Instance._resource; } } // 개체를 접근할 수 있도록 열어줌
     public static UIManager UI { get { return Instance._ui; } }
     public static SceneManagerEx Scene { get { return Instance._scene; } }
     public static SoundManager Sound { get { return Instance._sound; } }
+    public static PoolManager Pool { get { return Instance._pool; } }
 
     void Start()
     {
