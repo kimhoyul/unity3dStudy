@@ -51,8 +51,13 @@ public class PoolManager
             else
                 poolable = Create();
 
+            // DontDestroyOnLoad 해제를 위해서 씬 오브젝트에다가 자식으로 붙여 버리기
+            if (parent == null)
+                poolable.transform.parent = Managers.Scene.CurrentScene.transform;
+
             poolable.gameObject.SetActive(true);
-            poolable.transform.parent = parent;
+
+            poolable.transform.parent = parent; // null
             poolable.IsUsing = true;
 
             return poolable;

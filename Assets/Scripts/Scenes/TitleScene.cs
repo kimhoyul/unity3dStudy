@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +9,17 @@ public class TitleScene : BaseScene
     {
         base.Init();
         SceneType = Define.Scene.Title;
+
+        List<GameObject> list = new List<GameObject>();
+        for (int i = 0; i < 10; i++)
+        {
+            list.Add(Managers.Resource.Instantiate("Player"));
+        }
+
+        foreach (GameObject obj in list)
+        {
+            Managers.Resource.Destroy(obj);
+        }
     }
 
     private void Update()

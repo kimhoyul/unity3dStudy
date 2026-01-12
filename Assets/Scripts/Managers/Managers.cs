@@ -54,6 +54,12 @@ public class Managers : MonoBehaviour
             s_instance = go.GetComponent<Managers>();
 
             s_instance._sound.Init(); // 앞으로 Start 에서 못 할땐 여기서 하자!!!!
+            s_instance._pool.Init();
         }
+    }
+
+    public static void Clear()
+    {
+        Pool.Clear();
     }
 }
