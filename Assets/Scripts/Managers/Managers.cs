@@ -21,6 +21,7 @@ public class Managers : MonoBehaviour
     private SceneManagerEx _scene = new SceneManagerEx();
     private SoundManager _sound = new SoundManager();
     private PoolManager _pool = new PoolManager();
+    private DataManager _data = new DataManager();
 
     public static InputManager Input { get { return Instance._input; } }
     public static ResourceManager Resource { get { return Instance._resource; } } // 개체를 접근할 수 있도록 열어줌
@@ -28,6 +29,7 @@ public class Managers : MonoBehaviour
     public static SceneManagerEx Scene { get { return Instance._scene; } }
     public static SoundManager Sound { get { return Instance._sound; } }
     public static PoolManager Pool { get { return Instance._pool; } }
+    public static DataManager Data { get { return Instance._data; } }
 
     void Start()
     {
@@ -55,6 +57,7 @@ public class Managers : MonoBehaviour
 
             s_instance._sound.Init(); // 앞으로 Start 에서 못 할땐 여기서 하자!!!!
             s_instance._pool.Init();
+            s_instance._data.Init();
         }
     }
 
